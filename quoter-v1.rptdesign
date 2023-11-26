@@ -1,0 +1,1724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.20" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
+    <text-property name="title">Cotizacion</text-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">672</property>
+        </structure>
+        <structure>
+            <property name="name">queryTimeOut</property>
+            <property name="id">672</property>
+        </structure>
+        <structure>
+            <property name="name">rowFetchSize</property>
+            <property name="id">672</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="quoter" id="810">
+            <text-property name="promptText">Id</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">0</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">org.postgresql.Driver</property>
+            <property name="odaURL">jdbc:postgresql://localhost:5432/softwerp</property>
+            <property name="odaUser">vIleteRMIa</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">NHFYbnQ3VTR6N0Jq</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="5">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">full_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">full_name</text-property>
+                    <text-property name="heading">full_name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">type_quoter</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">type_quoter</text-property>
+                    <text-property name="heading">type_quoter</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">rate</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">rate</text-property>
+                    <text-property name="heading">rate</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">tax</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">tax</text-property>
+                    <text-property name="heading">tax</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">rate_type</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">rate_type</text-property>
+                    <text-property name="heading">rate_type</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">loan_amount</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">loan_amount</text-property>
+                    <text-property name="heading">loan_amount</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">disbursement_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">disbursement_date</text-property>
+                    <text-property name="heading">disbursement_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">first_installment_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">first_installment_date</text-property>
+                    <text-property name="heading">first_installment_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">term_in_months</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">term_in_months</text-property>
+                    <text-property name="heading">term_in_months</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">currency</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">currency</text-property>
+                    <text-property name="heading">currency</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">quoter</property>
+                    <property name="paramName">quoter</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">4</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue" type="javascript">0</expression>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">full_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">type_quoter</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">rate</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">tax</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">rate_type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">loan_amount</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">disbursement_date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">first_installment_date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">term_in_months</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">currency</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">full_name</property>
+                    <property name="nativeName">full_name</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">type_quoter</property>
+                    <property name="nativeName">type_quoter</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">rate</property>
+                    <property name="nativeName">rate</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">tax</property>
+                    <property name="nativeName">tax</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">rate_type</property>
+                    <property name="nativeName">rate_type</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">loan_amount</property>
+                    <property name="nativeName">loan_amount</property>
+                    <property name="dataType">decimal</property>
+                    <property name="nativeDataType">2</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">disbursement_date</property>
+                    <property name="nativeName">disbursement_date</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">first_installment_date</property>
+                    <property name="nativeName">first_installment_date</property>
+                    <property name="dataType">date</property>
+                    <property name="nativeDataType">91</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">term_in_months</property>
+                    <property name="nativeName">term_in_months</property>
+                    <property name="dataType">integer</property>
+                    <property name="nativeDataType">5</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">currency</property>
+                    <property name="nativeName">currency</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select p.full_name, 'FIDUCIARIO' type_quoter, ir.rate/100:: decimal rate,ir.tax/100:: decimal tax,
+case 
+	when q.rate_type ='MONTHLY' then 'MENSUAL NIVELADO'
+	else 'QUINCENAL NIVELADO'
+end rate_type,q.loan_amount,q.disbursement_date ,q.first_installment_date,q.term_in_months,c.code currency 
+	from main.quoter q 
+		join main.person p on q.customer_id =p.id
+		join main.interest_rate ir on q.interest_rate_id = ir.id 
+		join main.currency c on q.currency_id=c.id
+		where q.active =true and q.id=?:: INTEGER]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>full_name</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>full_name</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>full_name</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>type_quoter</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>2147483647</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Unknown</design:nullability>
+            <design:uiHints>
+              <design:displayName>type_quoter</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>type_quoter</design:label>
+            <design:formattingHints>
+              <design:displaySize>2147483647</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>rate</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>5</design:nativeDataTypeCode>
+            <design:precision>5</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>rate</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>rate</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>tax</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>5</design:nativeDataTypeCode>
+            <design:precision>5</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>tax</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>tax</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>rate_type</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>255</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>rate_type</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>rate_type</design:label>
+            <design:formattingHints>
+              <design:displaySize>255</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>loan_amount</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>38</design:precision>
+            <design:scale>2</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>loan_amount</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>loan_amount</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>disbursement_date</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>91</design:nativeDataTypeCode>
+            <design:precision>13</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>disbursement_date</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>disbursement_date</design:label>
+            <design:formattingHints>
+              <design:displaySize>13</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>first_installment_date</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>91</design:nativeDataTypeCode>
+            <design:precision>13</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>first_installment_date</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>first_installment_date</design:label>
+            <design:formattingHints>
+              <design:displaySize>13</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Detalle" id="672">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">_capital</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["capital"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">_interest</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["interest"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">_additional_charge</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["additional_charge"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">_total_quota</property>
+                    <expression name="expression">row["_capital"]+row["_interest"]</expression>
+                    <property name="dataType">decimal</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">BirtMath.roundUp(row["total_quota"],2)</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">_currency</property>
+                    <property name="dataType">string</property>
+                    <property name="aggregateFunction">FIRST</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["currency"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">quota</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">quota</text-property>
+                    <text-property name="heading">quota</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">end_date</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">end_date</text-property>
+                    <text-property name="heading">end_date</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">days</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">days</text-property>
+                    <text-property name="heading">days</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">balance</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">balance</text-property>
+                    <text-property name="heading">balance</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">capital</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">capital</text-property>
+                    <text-property name="heading">capital</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">interest</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">interest</text-property>
+                    <text-property name="heading">interest</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">additional_charge</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">additional_charge</text-property>
+                    <text-property name="heading">additional_charge</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">total_quota</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">total_quota</text-property>
+                    <text-property name="heading">total_quota</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">currency</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">currency</text-property>
+                    <text-property name="heading">currency</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">quoter</property>
+                    <property name="paramName">quoter</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">4</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">quota</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">end_date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">days</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">balance</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">capital</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">interest</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">additional_charge</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">total_quota</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">currency</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">_capital</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">_interest</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">_additional_charge</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">_total_quota</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">_currency</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">quota</property>
+                    <property name="nativeName">quota</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">end_date</property>
+                    <property name="nativeName">end_date</property>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">days</property>
+                    <property name="nativeName">days</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">balance</property>
+                    <property name="nativeName">balance</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">capital</property>
+                    <property name="nativeName">capital</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">interest</property>
+                    <property name="nativeName">interest</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">additional_charge</property>
+                    <property name="nativeName">additional_charge</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">total_quota</property>
+                    <property name="nativeName">total_quota</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">currency</property>
+                    <property name="nativeName">currency</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select qs.quota,qs.end_date,qs.days,qs.balance,qs.capital,qs.interest,qs.additional_charge,qs.total_quota,c.code currency
+	from main.quoter q
+		join main.currency c on q.currency_id=c.id
+		join main.quoter_scheduled qs on q.id=qs.quoter_id and qs.active = true
+	where qs.quoter_id =?:: INTEGER
+	order by qs.quota]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>quota</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>5</design:nativeDataTypeCode>
+            <design:precision>5</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>quota</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>quota</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>end_date</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>91</design:nativeDataTypeCode>
+            <design:precision>13</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>end_date</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>end_date</design:label>
+            <design:formattingHints>
+              <design:displaySize>13</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>days</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>5</design:nativeDataTypeCode>
+            <design:precision>5</design:precision>
+            <design:scale>0</design:scale>
+            <design:nullability>NotNullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>days</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>days</design:label>
+            <design:formattingHints>
+              <design:displaySize>6</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>balance</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>38</design:precision>
+            <design:scale>2</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>balance</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>balance</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>capital</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>38</design:precision>
+            <design:scale>2</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>capital</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>capital</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>interest</design:name>
+              <design:position>6</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>38</design:precision>
+            <design:scale>2</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>interest</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>interest</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>additional_charge</design:name>
+              <design:position>7</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>38</design:precision>
+            <design:scale>2</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>additional_charge</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>additional_charge</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>total_quota</design:name>
+              <design:position>8</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>2</design:nativeDataTypeCode>
+            <design:precision>38</design:precision>
+            <design:scale>2</design:scale>
+            <design:nullability>Nullable</design:nullability>
+            <design:uiHints>
+              <design:displayName>total_quota</design:displayName>
+            </design:uiHints>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>total_quota</design:label>
+            <design:formattingHints>
+              <design:displaySize>40</design:displaySize>
+            </design:formattingHints>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="Titles" id="760">
+            <property name="backgroundColor">#0474BB</property>
+            <property name="fontWeight">bold</property>
+            <property name="color">#FFFFFF</property>
+            <property name="borderBottomStyle">none</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">none</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">none</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">none</property>
+            <property name="borderTopWidth">thin</property>
+            <structure name="stringFormat">
+                <property name="category">></property>
+                <property name="pattern">></property>
+                <property name="locale">es_GT</property>
+            </structure>
+            <property name="showIfBlank">false</property>
+            <property name="canShrink">false</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <text-property name="displayName">Cotizador</text-property>
+            <property name="topMargin">0.5in</property>
+            <property name="leftMargin">0.35in</property>
+            <property name="rightMargin">0.35in</property>
+            <property name="backgroundImage">resources/membrete-2023v1.jpg</property>
+            <property name="backgroundRepeat">no-repeat</property>
+            <property name="backgroundSizeHeight">contain</property>
+            <property name="backgroundSizeWidth">contain</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="98">
+            <property name="fontSize">30pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="marginTop">0.75in</property>
+            <property name="textAlign">right</property>
+            <text-property name="text">COTIZACIÓN</text-property>
+        </label>
+        <text-data id="99">
+            <property name="fontSize">14pt</property>
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">right</property>
+            <expression name="valueExpr">"No. "+params["quoter"].value</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <grid id="348">
+            <column id="349"/>
+            <column id="350"/>
+            <column id="351"/>
+            <column id="352"/>
+            <column id="353"/>
+            <column id="354"/>
+            <column id="355"/>
+            <column id="356"/>
+            <column id="357"/>
+            <column id="358"/>
+            <column id="359"/>
+            <column id="360"/>
+            <column id="361"/>
+            <column id="362"/>
+            <column id="363"/>
+            <column id="364"/>
+            <column id="365"/>
+            <column id="366"/>
+            <column id="367"/>
+            <column id="368"/>
+            <column id="369"/>
+            <column id="370"/>
+            <column id="371"/>
+            <column id="372"/>
+            <column id="373"/>
+            <column id="374"/>
+            <column id="375"/>
+            <column id="376"/>
+            <column id="377"/>
+            <column id="378"/>
+            <row id="379">
+                <cell id="380"/>
+                <cell id="381"/>
+                <cell id="382"/>
+                <cell id="383"/>
+                <cell id="384"/>
+                <cell id="385"/>
+                <cell id="386"/>
+                <cell id="387"/>
+                <cell id="388"/>
+                <cell id="389"/>
+                <cell id="390"/>
+                <cell id="391"/>
+                <cell id="392"/>
+                <cell id="393"/>
+                <cell id="394"/>
+                <cell id="395"/>
+                <cell id="396"/>
+                <cell id="397"/>
+                <cell id="398"/>
+                <cell id="399"/>
+                <cell id="400"/>
+                <cell id="401"/>
+                <cell id="402"/>
+                <cell id="403"/>
+                <cell id="404"/>
+                <cell id="405"/>
+                <cell id="406"/>
+                <cell id="407"/>
+                <cell id="408"/>
+                <cell id="409"/>
+            </row>
+            <row id="641">
+                <cell id="642"/>
+                <cell id="643"/>
+                <cell id="644"/>
+                <cell id="645"/>
+                <cell id="646"/>
+                <cell id="647"/>
+                <cell id="648"/>
+                <cell id="649"/>
+                <cell id="650"/>
+                <cell id="651"/>
+                <cell id="652"/>
+                <cell id="653"/>
+                <cell id="654"/>
+                <cell id="655"/>
+                <cell id="656"/>
+                <cell id="657"/>
+                <cell id="658"/>
+                <cell id="659"/>
+                <cell id="660"/>
+                <cell id="661"/>
+                <cell id="662"/>
+                <cell id="663"/>
+                <cell id="664"/>
+                <cell id="665"/>
+                <cell id="666"/>
+                <cell id="667"/>
+                <cell id="668"/>
+                <cell id="669"/>
+                <cell id="670"/>
+                <cell id="671"/>
+            </row>
+            <row id="761">
+                <cell id="762"/>
+                <cell id="763"/>
+                <cell id="764"/>
+                <cell id="765"/>
+                <cell id="766"/>
+                <cell id="767"/>
+                <cell id="768"/>
+                <cell id="769"/>
+                <cell id="770"/>
+                <cell id="771"/>
+                <cell id="772"/>
+                <cell id="773"/>
+                <cell id="774"/>
+                <cell id="775"/>
+                <cell id="776"/>
+                <cell id="777"/>
+                <cell id="778"/>
+                <cell id="779"/>
+                <cell id="780"/>
+                <cell id="781"/>
+                <cell id="782"/>
+                <cell id="783"/>
+                <cell id="784"/>
+                <cell id="785"/>
+                <cell id="786"/>
+                <cell id="787"/>
+                <cell id="788"/>
+                <cell id="789"/>
+                <cell id="790"/>
+                <cell id="791"/>
+            </row>
+            <row id="410">
+                <cell id="411">
+                    <property name="colSpan">6</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">Titles</property>
+                    <label id="627">
+                        <property name="whiteSpace">normal</property>
+                        <property name="display">block</property>
+                        <text-property name="text">NOMBRE:</text-property>
+                    </label>
+                </cell>
+                <cell id="417">
+                    <property name="colSpan">12</property>
+                    <property name="rowSpan">1</property>
+                    <data id="640">
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">full_name</property>
+                                <text-property name="displayName">full_name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["full_name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">full_name</property>
+                    </data>
+                </cell>
+                <cell id="429"/>
+                <cell id="430">
+                    <property name="colSpan">7</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">Titles</property>
+                    <label id="633">
+                        <text-property name="text">IVA</text-property>
+                    </label>
+                </cell>
+                <cell id="437">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <data id="797">
+                        <structure name="numberFormat">
+                            <property name="category">Percent</property>
+                            <property name="pattern">###0.00%{RoundingMode=HALF_UP}</property>
+                        </structure>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">tax</property>
+                                <text-property name="displayName">tax</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["tax"]</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">tax</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="441">
+                <cell id="442">
+                    <property name="colSpan">6</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">Titles</property>
+                    <label id="628">
+                        <text-property name="text">TIPO DE PRESTAMO:</text-property>
+                    </label>
+                </cell>
+                <cell id="448">
+                    <property name="colSpan">12</property>
+                    <property name="rowSpan">1</property>
+                    <data id="792">
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">type_quoter</property>
+                                <text-property name="displayName">type_quoter</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["type_quoter"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">type_quoter</property>
+                    </data>
+                </cell>
+                <cell id="460"/>
+                <cell id="461">
+                    <property name="colSpan">7</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">Titles</property>
+                    <label id="634">
+                        <text-property name="text">FECHA DESEMBOLSO</text-property>
+                    </label>
+                </cell>
+                <cell id="468">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <data id="798">
+                        <structure name="dateTimeFormat">
+                            <property name="category">Medium Date</property>
+                            <property name="pattern">Medium Date</property>
+                        </structure>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">disbursement_date</property>
+                                <text-property name="displayName">disbursement_date</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["disbursement_date"]</expression>
+                                <property name="dataType">date</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">disbursement_date</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="472">
+                <cell id="473">
+                    <property name="colSpan">6</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">Titles</property>
+                    <label id="629">
+                        <text-property name="text">TASA DE INTERES:</text-property>
+                    </label>
+                </cell>
+                <cell id="479">
+                    <property name="colSpan">12</property>
+                    <property name="rowSpan">1</property>
+                    <data id="793">
+                        <structure name="numberFormat">
+                            <property name="category">Percent</property>
+                            <property name="pattern">###0.00%{RoundingMode=HALF_UP}</property>
+                        </structure>
+                        <structure name="stringFormat">
+                            <property name="category">Unformatted</property>
+                        </structure>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">rate</property>
+                                <text-property name="displayName">rate</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["rate"]</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">rate</property>
+                    </data>
+                </cell>
+                <cell id="491"/>
+                <cell id="492">
+                    <property name="colSpan">7</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">Titles</property>
+                    <label id="635">
+                        <text-property name="text">FECHA PRIMERA CUOTA</text-property>
+                    </label>
+                </cell>
+                <cell id="499">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <data id="799">
+                        <structure name="dateTimeFormat">
+                            <property name="category">Medium Date</property>
+                            <property name="pattern">Medium Date</property>
+                        </structure>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">first_installment_date</property>
+                                <text-property name="displayName">first_installment_date</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["first_installment_date"]</expression>
+                                <property name="dataType">date</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">first_installment_date</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="503">
+                <cell id="504">
+                    <property name="colSpan">6</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">Titles</property>
+                    <label id="630">
+                        <text-property name="text">AMORTIZACION:</text-property>
+                    </label>
+                </cell>
+                <cell id="510">
+                    <property name="colSpan">12</property>
+                    <property name="rowSpan">1</property>
+                    <data id="794">
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">rate_type</property>
+                                <text-property name="displayName">rate_type</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["rate_type"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">rate_type</property>
+                    </data>
+                </cell>
+                <cell id="522"/>
+                <cell id="523"/>
+                <cell id="524"/>
+                <cell id="525"/>
+                <cell id="526"/>
+                <cell id="527"/>
+                <cell id="528"/>
+                <cell id="529"/>
+                <cell id="530"/>
+                <cell id="531"/>
+                <cell id="532"/>
+                <cell id="533"/>
+            </row>
+            <row id="534">
+                <cell id="535">
+                    <property name="colSpan">6</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">Titles</property>
+                    <label id="631">
+                        <text-property name="text">PLAZO EN MESES:</text-property>
+                    </label>
+                </cell>
+                <cell id="541">
+                    <property name="colSpan">12</property>
+                    <property name="rowSpan">1</property>
+                    <data id="795">
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">term_in_months</property>
+                                <text-property name="displayName">term_in_months</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["term_in_months"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">term_in_months</property>
+                    </data>
+                </cell>
+                <cell id="553"/>
+                <cell id="554">
+                    <property name="colSpan">7</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">Titles</property>
+                    <label id="636">
+                        <text-property name="text">MORA</text-property>
+                    </label>
+                </cell>
+                <cell id="561">
+                    <property name="colSpan">4</property>
+                    <property name="rowSpan">1</property>
+                    <data id="800">
+                        <structure name="numberFormat">
+                            <property name="category">Percent</property>
+                            <property name="pattern">###0.00%{RoundingMode=HALF_UP}</property>
+                        </structure>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">tax</property>
+                                <text-property name="displayName">tax</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["tax"]</expression>
+                                <property name="dataType">decimal</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">tax</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="565">
+                <cell id="566">
+                    <property name="colSpan">6</property>
+                    <property name="rowSpan">1</property>
+                    <property name="style">Titles</property>
+                    <label id="632">
+                        <text-property name="text">MONTO PRESTAMO:</text-property>
+                    </label>
+                </cell>
+                <cell id="572">
+                    <property name="colSpan">12</property>
+                    <property name="rowSpan">1</property>
+                    <data id="796">
+                        <structure name="numberFormat">
+                            <property name="category">Currency</property>
+                            <property name="pattern">Q #,##0.00{RoundingMode=HALF_UP}</property>
+                        </structure>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">loan_amount</property>
+                                <text-property name="displayName">loan_amount</text-property>
+                                <expression name="expression" type="javascript">Formatter.format(dataSetRow["loan_amount"],dataSetRow["currency"]+" ###,###.00")</expression>
+                                <property name="dataType">string</property>
+                                <property name="allowExport">true</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">loan_amount</property>
+                    </data>
+                </cell>
+                <cell id="584"/>
+                <cell id="585"/>
+                <cell id="586"/>
+                <cell id="587"/>
+                <cell id="588"/>
+                <cell id="589"/>
+                <cell id="590"/>
+                <cell id="591"/>
+                <cell id="592"/>
+                <cell id="593"/>
+                <cell id="594"/>
+                <cell id="595"/>
+            </row>
+            <row id="596">
+                <cell id="597"/>
+                <cell id="598"/>
+                <cell id="599"/>
+                <cell id="600"/>
+                <cell id="601"/>
+                <cell id="602"/>
+                <cell id="603"/>
+                <cell id="604"/>
+                <cell id="605"/>
+                <cell id="606"/>
+                <cell id="607"/>
+                <cell id="608"/>
+                <cell id="609"/>
+                <cell id="610"/>
+                <cell id="611"/>
+                <cell id="612"/>
+                <cell id="613"/>
+                <cell id="614"/>
+                <cell id="615"/>
+                <cell id="616"/>
+                <cell id="617"/>
+                <cell id="618"/>
+                <cell id="619"/>
+                <cell id="620"/>
+                <cell id="621"/>
+                <cell id="622"/>
+                <cell id="623"/>
+                <cell id="624"/>
+                <cell id="625"/>
+                <cell id="626"/>
+            </row>
+        </grid>
+        <table id="708">
+            <property name="dataSet">Detalle</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">quota</property>
+                    <text-property name="displayName">quota</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["quota"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">end_date</property>
+                    <text-property name="displayName">end_date</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["end_date"]</expression>
+                    <property name="dataType">date</property>
+                </structure>
+                <structure>
+                    <property name="name">days</property>
+                    <text-property name="displayName">days</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["days"]</expression>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="name">balance</property>
+                    <text-property name="displayName">balance</text-property>
+                    <expression name="expression" type="javascript">Formatter.format(dataSetRow["balance"],dataSetRow["currency"]+" ###,#00.00")</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">capital</property>
+                    <text-property name="displayName">capital</text-property>
+                    <expression name="expression" type="javascript">Formatter.format(dataSetRow["capital"],dataSetRow["currency"]+" ###,#00.00")</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">interest</property>
+                    <text-property name="displayName">interest</text-property>
+                    <expression name="expression" type="javascript">Formatter.format(dataSetRow["interest"],dataSetRow["currency"]+" ###,#00.00")</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">additional_charge</property>
+                    <text-property name="displayName">additional_charge</text-property>
+                    <expression name="expression" type="javascript">Formatter.format(dataSetRow["additional_charge"],dataSetRow["currency"]+" ###,#00.00")</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">total_quota</property>
+                    <text-property name="displayName">total_quota</text-property>
+                    <expression name="expression" type="javascript">Formatter.format(dataSetRow["total_quota"],dataSetRow["currency"]+" ###,#00.00")</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">currency</property>
+                    <text-property name="displayName">currency</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["currency"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">_capital</property>
+                    <text-property name="displayName">_capital</text-property>
+                    <expression name="expression" type="javascript">Formatter.format(dataSetRow["_capital"],dataSetRow["_currency"]+" ###,#00.00")</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">_interest</property>
+                    <text-property name="displayName">_interest</text-property>
+                    <expression name="expression" type="javascript">Formatter.format(dataSetRow["_interest"],dataSetRow["_currency"]+" ###,#00.00")</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">_additional_charge</property>
+                    <text-property name="displayName">_additional_charge</text-property>
+                    <expression name="expression" type="javascript">Formatter.format(dataSetRow["_additional_charge"],dataSetRow["_currency"]+" ###,#00.00")</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">_total_quota</property>
+                    <text-property name="displayName">_total_quota</text-property>
+                    <expression name="expression" type="javascript">Formatter.format(dataSetRow["_total_quota"],dataSetRow["_currency"]+" ###,#00.00")</expression>
+                    <property name="dataType">string</property>
+                    <property name="allowExport">true</property>
+                </structure>
+                <structure>
+                    <property name="name">_currency</property>
+                    <text-property name="displayName">_currency</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["_currency"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">_total_quota_1</property>
+                    <text-property name="displayName">_total_quota</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["_total_quota"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <column id="752"/>
+            <column id="753"/>
+            <column id="754"/>
+            <column id="755"/>
+            <column id="756"/>
+            <column id="757"/>
+            <column id="758"/>
+            <column id="759"/>
+            <header>
+                <row id="709">
+                    <cell id="710">
+                        <property name="style">Titles</property>
+                        <label id="711">
+                            <text-property name="text">CUOTA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="712">
+                        <property name="style">Titles</property>
+                        <label id="713">
+                            <text-property name="text">FECHA</text-property>
+                        </label>
+                    </cell>
+                    <cell id="714">
+                        <property name="style">Titles</property>
+                        <label id="715">
+                            <text-property name="text">DIAS</text-property>
+                        </label>
+                    </cell>
+                    <cell id="716">
+                        <property name="style">Titles</property>
+                        <label id="717">
+                            <text-property name="text">SALDO CAPITAL</text-property>
+                        </label>
+                    </cell>
+                    <cell id="718">
+                        <property name="style">Titles</property>
+                        <label id="719">
+                            <text-property name="text">CAPITAL</text-property>
+                        </label>
+                    </cell>
+                    <cell id="720">
+                        <property name="style">Titles</property>
+                        <label id="721">
+                            <text-property name="text">INTERESES</text-property>
+                        </label>
+                    </cell>
+                    <cell id="722">
+                        <property name="style">Titles</property>
+                        <label id="723">
+                            <text-property name="text">CARGO ADICIONAL</text-property>
+                        </label>
+                    </cell>
+                    <cell id="724">
+                        <property name="style">Titles</property>
+                        <label id="725">
+                            <text-property name="text">CUOTA TOTAL</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="726">
+                    <cell id="727">
+                        <data id="728">
+                            <structure name="numberFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">00</property>
+                            </structure>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">quota</property>
+                        </data>
+                    </cell>
+                    <cell id="729">
+                        <data id="730">
+                            <structure name="dateTimeFormat">
+                                <property name="category">Medium Date</property>
+                                <property name="pattern">Medium Date</property>
+                            </structure>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">end_date</property>
+                        </data>
+                    </cell>
+                    <cell id="731">
+                        <data id="732">
+                            <structure name="numberFormat">
+                                <property name="category">Custom</property>
+                                <property name="pattern">#00</property>
+                            </structure>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">days</property>
+                        </data>
+                    </cell>
+                    <cell id="733">
+                        <data id="734">
+                            <structure name="numberFormat">
+                                <property name="category">Unformatted</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">balance</property>
+                        </data>
+                    </cell>
+                    <cell id="735">
+                        <data id="736">
+                            <structure name="stringFormat">
+                                <property name="category">Custom</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">row["capital"]!='NULL'?false:true</expression>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">capital</property>
+                        </data>
+                    </cell>
+                    <cell id="737">
+                        <data id="738">
+                            <property name="textAlign">right</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">row["interest"]!='NULL'?false:true</expression>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">interest</property>
+                        </data>
+                    </cell>
+                    <cell id="739">
+                        <data id="740">
+                            <property name="textAlign">right</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">row["additional_charge"]!='NULL'?false:true</expression>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">additional_charge</property>
+                        </data>
+                    </cell>
+                    <cell id="741">
+                        <data id="742">
+                            <property name="textAlign">right</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">row["total_quota"]!='NULL'?false:true</expression>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">total_quota</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="743">
+                    <cell id="744"/>
+                    <cell id="745"/>
+                    <cell id="746"/>
+                    <cell id="747"/>
+                    <cell id="748">
+                        <data id="813">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">_capital</property>
+                        </data>
+                    </cell>
+                    <cell id="749">
+                        <data id="814">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">_interest</property>
+                        </data>
+                    </cell>
+                    <cell id="750">
+                        <data id="815">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">_additional_charge</property>
+                        </data>
+                    </cell>
+                    <cell id="751">
+                        <data id="820">
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">_total_quota</property>
+                        </data>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>
